@@ -36,12 +36,9 @@ class MainActivity : AppCompatActivity() {
 
     private suspend fun downloadUserData() {
         for (i in 1..200000) {
-            Log.i("MyTag", "Downloading user $i in ${Thread.currentThread().name}")
             withContext(Dispatchers.Main){
-                messageTV.text = "Downloading user $i"
-
+                messageTV.text = "Downloading user $i in ${Thread.currentThread().name}"
             }
-            delay(100)
         }
     }
 }
